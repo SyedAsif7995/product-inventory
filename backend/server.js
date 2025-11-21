@@ -31,6 +31,10 @@ db.serialize(() => {
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
 });
+app.get("/", (req, res) => {
+  res.send("Backend running...");
+});
+
 
 app.get('/api/products', (req, res) => {
   db.all('SELECT * FROM products', [], (err, rows) => {
